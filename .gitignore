@@ -1,0 +1,14 @@
+# Секреты
+.env
+
+db_data/
+wordpress_data/
+wp-content/
+
+
+certbot/
+/etc/letsencrypt/
+
+
+.DS_Store
+*.log
