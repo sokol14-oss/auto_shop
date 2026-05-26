@@ -10,11 +10,11 @@ jobs:
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          port: ${{ secrets.SSH_PORT }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+           host: ${{secrets.SSH_HOST}}
+           username: ${{secrets.SSH_USER}}
+           port: ${{secrets.SSH_PORT}}
+           key: ${{secrets.SSH_PIVATE_KEY}}
+           script: |
             cd ~/auto_shop
             git pull origin main || git clone https://github.com/${{ github.repository }}.git .
             COMPOSE_API_VERSION=1.41 docker-compose up -d --build
