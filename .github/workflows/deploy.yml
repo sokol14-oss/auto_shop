@@ -12,8 +12,9 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
+          port: 49152
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/auto_shop
-            git pull origin main || git clone https://github.com{{ github.repository }}.git .
+            git pull origin main || git clone https://github.com/${{ github.repository }}.git .
             COMPOSE_API_VERSION=1.41 docker-compose up -d --build
