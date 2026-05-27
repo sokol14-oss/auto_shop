@@ -37,6 +37,19 @@ services:
       - wordpress_data:/var/www/html # Чтобы Nginx видел статику сайта
     depends_on:
       - wordpress
+  
+  updater:
+    build: ./updater
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      -./updater:/app
+    env_file:
+      - .env
+
+  
+
 
 volumes:
   db_data:
